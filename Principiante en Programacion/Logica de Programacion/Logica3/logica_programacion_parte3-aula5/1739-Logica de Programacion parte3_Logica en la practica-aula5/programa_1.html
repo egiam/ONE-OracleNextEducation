@@ -1,0 +1,29 @@
+<canvas width="600" height="400"> </canvas>
+
+<script>
+    var pantalla = document.querySelector("canvas"); // seleccionamos el canvas de la pantalla y lo guardamos en una variable.
+    var pincel = pantalla.getContext("2d"); // seleccionamos el pincel de la pantalla y lo guardamos en una variable.
+
+    pincel.fillStyle = "lightgrey"; //propiedad que define el color de relleno del pincel.
+    pincel.fillRect(0, 0, 600, 400); //función que dibuja un rectangulo con los parametros de posicion y tamaño.
+
+    pincel.fillStyle = "green"; //propiedad que define el color de relleno del pincel.
+    pincel.fillRect(0, 0, 200, 400); //función que dibuja un rectangulo con los parametros de posicion y tamaño.
+
+    pincel.fillStyle = "red"; //propiedad que define el color de relleno del pincel.
+    pincel.fillRect(400, 0, 200, 400); //función que dibuja un rectangulo con los parametros de posicion y tamaño.
+
+    //Triangulo Amarillo
+    pincel.fillStyle = "yellow"; //propiedad que define el color de relleno del pincel.
+    pincel.beginPath(); //función que inicia un camino.
+    pincel.moveTo(300, 200); //función que mueve el pincel a una posicion.
+    pincel.lineTo(200, 400); //función que dibuja una linea desde una posicion hasta otra.
+    pincel.lineTo(400, 400); //función que dibuja una linea desde una posicion hasta otra.
+    pincel.fill(); //función que dibuja el contenido del pincel.
+
+    //Circulo Rojo
+    pincel.fillStyle = "blue"; //propiedad que define el color de relleno del pincel.
+    pincel.beginPath(); //función que dibuja el contenido del pincel
+    pincel.arc(300, 200, 50, 0, 2 * 3.14); //función que dibuja el contenido del pincel
+    pincel.fill(); //función que dibuja el contenido del pincel en un circulo.
+</script>

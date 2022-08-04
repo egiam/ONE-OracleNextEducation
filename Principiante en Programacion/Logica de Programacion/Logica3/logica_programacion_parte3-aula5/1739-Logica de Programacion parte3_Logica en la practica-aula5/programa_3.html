@@ -1,0 +1,32 @@
+<canvas width="600" height="400"> </canvas>
+
+<script>
+    var pantalla = document.querySelector("canvas"); //Seleccionamos el canvas y lo guardamos en una variable.
+    var pincel = pantalla.getContext("2d"); //Seleccionamos el pincel desde el canvas y lo guardamos en una variable.
+
+    pincel.fillStyle = "grey";
+    pincel.fillRect(0, 0, 600, 400);
+
+    function exibirAlerta(evento) {
+        //Funcion que se ejecuta al dar click en el canvas.
+        var x = evento.pageX - pantalla.offsetLeft; //Obtenemos la posicion del click en el eje x. Restando lo que sobra en la parte izquierda del total de la pantalla.
+        var y = evento.pageY - pantalla.offsetTop; //Obtenemos la posicion del click en el eje y. Restando lo que sobra en la parte superior del total de la pantalla.
+        console.log(evento); //Imprimimos en consola la posicion del click.
+        alert(x + "," + y); //Mostramos la posicion del click en el eje x y eje y.
+    }
+
+    function dibujarCirculo(evento) {
+        //Funcion para dibujar un circulo.
+        var x = evento.pageX - pantalla.offsetLeft; //Obtenemos la posicion del click en el eje x.
+        var y = evento.pageY - pantalla.offsetTop; //Obtenemos la posicion del click en el eje y.
+
+        pincel.fillStyle = "blue";
+        pincel.beginPath(); //Iniciamos el camino.
+        pincel.arc(x, y, 10, 0, 2 * 3.14); //Dibujamos el circulo.
+        pincel.fill(); //Rellenamos el circulo.
+        console.log(x + "," + y); //Imprimimos en consola la posicion del click.
+    }
+
+    //pantalla.onclick = exibirAlerta;
+    pantalla.onclick = dibujarCirculo; //Seleccionamos el canvas y le asignamos una funcion que se ejecutara cuando se haga click en el canvas.
+</script>

@@ -1,0 +1,33 @@
+<canvas width="600" height="400"> </canvas>
+
+<script>
+    var pantalla = document.querySelector("canvas"); //Seleccionamos el canvas y lo guardamos en una variable.
+    var pincel = pantalla.getContext("2d"); //Seleccionamos el pincel desde el canvas y lo guardamos en una variable.
+
+    pincel.fillStyle = "lightgrey";
+    pincel.fillRect(0, 0, 600, 400);
+
+    function disenharCircunferencia(x, y, radio) {
+        //Funcion para dibujar un circulo.
+        pincel.fillStyle = "blue";
+        pincel.beginPath(); //Iniciamos el camino.
+        pincel.arc(x, y, radio, 0, 2 * Math.PI); //Dibujamos el circulo.
+        pincel.fill(); //Rellenamos el circulo.
+    }
+
+    function limpiarPantalla() {
+        //Funcion para limpiar la pantalla.
+        pincel.clearRect(0, 0, 600, 400); //Limpiamos la pantalla.
+    }
+
+    var x = 0;
+
+    function actualizarPantalla() {
+        //Funcion que se ejecuta cada vez que se hace click en el canvas.
+        limpiarPantalla();
+        disenharCircunferencia(x, 20, 10); //Dibujamos un circulo.
+        x++; //Aumentamos la posicion del circulo.
+    }
+
+    setInterval(actualizarPantalla, 100); //Seleccionamos el canvas y le asignamos una funcion que se ejecutara cada 100 milisegundos.
+</script>
